@@ -1,0 +1,15 @@
+"""
+There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+find_uniq([ 1, 1, 1, 2, 1, 1 ]) == 2
+find_uniq([ 0, 0, 0.55, 0, 0 ]) == 0.55
+It’s guaranteed that array contains at least 3 numbers.
+"""
+def find_uniq(arr):
+    first = arr[0]
+    list_1 = [i for i in arr if i == arr[0]]
+    list_2 = [i for i in arr if i != arr[0]]
+    if len(list_1) < len(list_2):
+        return list_1[0]
+    else:
+        return list_2[0]
