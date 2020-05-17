@@ -1,0 +1,31 @@
+"""
+Write a function that will find all the anagrams of a word from a list. 
+You will be given two inputs a word and an array with words. 
+You should return an array of all the anagrams or an empty array if there are none. 
+For example:
+
+anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+
+anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) => ['carer', 'racer']
+
+anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
+"""
+
+def count_letters(word):
+    counts = {}
+    counted = []
+    for letter in word:
+        if letter not in counted:
+            counts[letter] = word.count(letter)
+            counted.append(letter)
+    return counts
+    
+def anagrams(word, words):
+    word_counts = count_letters(word)
+    anagrams = []
+    for element in words:
+        element_counts = count_letters(element)
+        if word_counts == element_counts:
+            anagrams.append(element)
+            
+    return anagrams
